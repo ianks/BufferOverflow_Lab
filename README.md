@@ -13,3 +13,8 @@ To Run:
 ```  
 cat *_solution.txt | ./hex2raw | ./bufbomb -u ianks
 ```
+Except for Nitro phrase which is:
+```  
+cat *_solution.txt | ./hex2raw -n | ./bufbomb -n -u ianks
+```
+
