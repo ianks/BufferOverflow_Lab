@@ -10,6 +10,6 @@ Typically, this recipe was followed:
     * reset the %ebp (base pointer) such that we avoid sementation faults
 
 To Run:
-  '''
+```  
 cat *_solution.txt | ./hex2raw | ./bufbomb -u ianks
-  '''
+```
